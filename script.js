@@ -12,3 +12,5 @@ L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{
 let fitzMarker = L.marker([52.20,0.119]);
 fitzMarker.addTo(map);
 fitzMarker.bindPopup("<p>Fitzwilliam Museum</p>")
+
+getCoords()
