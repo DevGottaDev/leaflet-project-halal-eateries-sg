@@ -59,7 +59,8 @@ while i <= 403:
             res.append(data)
             rest_no+=1
         except:
-            print("Unable to parse: /n" + restaurant)
+            name = restaurantNames[index].text.strip()
+            print("Unable to parse: /n" + name)
             print("Found on page:" + i)
 
     # Click next page
