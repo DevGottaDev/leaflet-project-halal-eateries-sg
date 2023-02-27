@@ -1,16 +1,39 @@
-let trent = [1.3076,103.8808]; // #Cambridge latlong
-let map = L.map('map').setView(trent, 13); // #2 Set the center point
+let trent = [1.3076,103.8808]; // #trent latlong
 
 // setup the tile layers
-L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png', {
-    maxZoom: 20,
-	attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
-    tileSize: 512,
-    zoomOffset: -1
-}).addTo(map);
+omp = L.tileLayer('https://maps-{s}.onemap.sg/v3/Default/{z}/{x}/{y}.png', {
+    detectRetina: true,
+    maxZoom: 18,
+    minZoom: 11
+})
 
-let fitzMarker = L.marker([52.20,0.119]);
-fitzMarker.addTo(map);
-fitzMarker.bindPopup("<p>Fitzwilliam Museum</p>")
+async function buildMap(){
+    let coords = await getCoords();
+    let markers = [];
 
-getCoords()
+    for (let i = 0; i < coords.length; i++) {
+        let coord = coords[i];
+        let marker = new L.marker([coord['LATITUDE'],coord['LONGITUDE']]);
+        markers.push(marker);
+    }
+
+    let locations = L.layerGroup(markers)
+
+    let map = L.map('map',{
+        center: trent,
+        zoom: 12,
+        layers: omp, locations
+
+    });
+
+    let baseLayers = {
+        "OneMap SG": omp,
+    }
+    
+    let overlayLayers = {
+        "Halal Restaurants": locations
+    }
+
+    let layerControl = L.control.layers(baseLayers, overlayLayers).addTo(map)
+}
+buildMap();
