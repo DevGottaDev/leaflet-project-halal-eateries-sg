@@ -1,4 +1,5 @@
 const coordsCsv = 'https://raw.githubusercontent.com/RecursiveDev/tgc-proj1/main/datasources/muis_coordinates-small.csv'
+const restaurantJson = 'https://raw.githubusercontent.com/RecursiveDev/leaflet-project-halal-eateries-sg/main/datasources/muis/halal-eateries-small.json'
 
 async function fetchCoords(){
     let response = (await axios.get(coordsCsv)).data;
@@ -6,12 +7,19 @@ async function fetchCoords(){
     return response;
 }
 
-async function getCoords(){
-    let coordsStr = await fetchCoords()
+async function fetchRestaurant(){
+    let response = (await axios.get(restaurantJson)).data;
+    // console.log(response);
+    return response;
+}
+
+async function getFeatures(){
+    let features = await fetchRestaurant();
+    let coordsStr = await fetchCoords();
     // console.log(coordsStr)
     let lines = coordsStr.replace("\r","").split("\n");
     // console.log(lines)
-    let parsedCoords = [];
+    let markerData = [];
     let headers = lines[0].split(",");
     // console.log(headers)
 
@@ -19,11 +27,15 @@ async function getCoords(){
         let obj = {};
         let row = lines[i].split(",");
 
-        for(var j=0;j<headers.length;j++){
-            obj[headers[j]] = row[j];
+        for(let j=0;j<headers.length;j++){
+            obj[headers[j].toLowerCase()] = row[j];
         }
-        parsedCoords.push(obj);
+        obj['name'] = [(features[i-1]['name'])];
+        obj['address'] = [(features[i-1]['address'])];
+        obj['postalCode'] = [(features[i-1]['postalCode'])];
+        markerData.push(obj);
     }
     // console.log(parsedCoords)
-    return parsedCoords;
+    // console.log(markerData)
+    return markerData;
 }

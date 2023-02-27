@@ -1,4 +1,4 @@
-var halalIcon = L.icon({
+let halalIcon = L.icon({
     iconUrl: 'https://github.com/RecursiveDev/tgc-proj1/blob/main/assets/halal_icon.png?raw=true',
 
     iconSize:     [30, 37.5], // size of the icon
@@ -9,7 +9,7 @@ var halalIcon = L.icon({
 let center = [1.3306,103.8158]; // center latlong
 
 // setup the tile layers
-const mapBounds = new L.LatLngBounds(
+let mapBounds = new L.LatLngBounds(
     new L.LatLng(1.1443, 103.596),
     new L.LatLng(1.4835, 104.1));
 
@@ -19,19 +19,21 @@ ompDay = L.tileLayer('https://maps-{s}.onemap.sg/v3/Default/{z}/{x}/{y}.png', {
 ompNight = L.tileLayer('https://maps-{s}.onemap.sg/v3/Night/{z}/{x}/{y}.png', {
 })
 
-ompGrey = L.tileLayer('https://maps-{s}.onemap.sg/v3/Grey/{z}/{x}/{y}.png', {
-})
-
-ompOriginal = L.tileLayer('https://maps-{s}.onemap.sg/v3/Original/{z}/{x}/{y}.png', {
-})
-
 async function populateMarkers(){
-    let coords = await getCoords();
+    let features = await getFeatures();
     let markers = [];
 
-    for (let i = 0; i < coords.length; i++) {
-        let coord = coords[i];
-        let marker = new L.marker([coord['LATITUDE'],coord['LONGITUDE']], {icon: halalIcon});
+    for (let i = 0; i < features.length; i++) {
+        let feature = features[i];
+        let name = String(feature['name'])
+        let address = String(feature['address'])
+        let postalCode = String(feature['postalCode'])
+        let marker = new L.marker([feature['latitude'],feature['longitude']], {icon: halalIcon}).bindPopup(
+            "<b>Name:</b> "+ name +
+            "<br><b>Address:</b> "+ address +
+            "<br><b>Postcode:</b> "+ postalCode
+
+        );
         markers.push(marker);
     }
     return markers;
@@ -39,6 +41,7 @@ async function populateMarkers(){
 
 async function buildMap(){
     markers = await populateMarkers()
+    
     let locations = L.layerGroup(markers)
 
     let map = L.map('map',{
@@ -49,15 +52,13 @@ async function buildMap(){
         zoom: 13,
         maxBounds: mapBounds,
         maxBoundsViscosity: 1,
-        layers: ompDay, ompNight, ompGrey, ompOriginal, locations
+        layers: ompDay, ompNight, locations
 
     });
 
     let baseLayers = {
         "OneMap - Day Theme": ompDay.addTo(map),
-        "OneMap - Night Theme": ompNight,
-        "OneMap - Grey Theme": ompGrey,
-        "OneMap - Original Theme": ompOriginal,
+        "OneMap - Night Theme": ompNight
 
 
     }
