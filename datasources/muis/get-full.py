@@ -70,5 +70,5 @@ while i <= 403:
     time.sleep(8)
     i+=1
 
-with open("halal-eateries-small.json", "a",  encoding='utf-8') as f:
+with open("halal-eateries.json", "a",  encoding='utf-8') as f:
     json.dump(res, f, indent=8, ensure_ascii=False)

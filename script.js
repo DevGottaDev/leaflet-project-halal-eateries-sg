@@ -1,11 +1,9 @@
 var halalIcon = L.icon({
-    iconUrl: 'assets\halal_icon.png',
+    iconUrl: 'https://github.com/RecursiveDev/tgc-proj1/blob/main/assets/halal_icon.png?raw=true',
 
-    iconSize:     [38, 95], // size of the icon
-    shadowSize:   [50, 64], // size of the shadow
-    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
-    shadowAnchor: [4, 62],  // the same for the shadow
-    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+    iconSize:     [30, 37.5], // size of the icon
+    iconAnchor:   [18, 18], // point of the icon which will correspond to marker's location
+    popupAnchor:  [0, -10] // point from which the popup should open relative to the iconAnchor
 });
 
 let center = [1.35548,103.80551]; // center latlong

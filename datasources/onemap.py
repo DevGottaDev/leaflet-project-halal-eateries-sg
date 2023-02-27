@@ -7,7 +7,7 @@ import pathlib
 #.csv file write headers
 csvheaders = ['ID','LATITUDE','LONGITUDE']
 
-with open('muis_coordinates.csv','a',encoding ='utf-8',newline='') as c:
+with open('muis_coordinates.csv','w',encoding ='utf-8',newline='') as c:
     writer=csv.writer(c)
     writer.writerow(csvheaders)
 
