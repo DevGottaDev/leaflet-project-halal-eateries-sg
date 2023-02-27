@@ -9,7 +9,7 @@ async function fetchCoords(){
 async function getCoords(){
     let coordsStr = await fetchCoords()
     // console.log(coordsStr)
-    let lines = coordsStr.split("\n");
+    let lines = coordsStr.replace("\r","").split("\n");
     // console.log(lines)
     let parsedCoords = [];
     let headers = lines[0].split(",");
