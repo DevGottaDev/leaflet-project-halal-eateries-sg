@@ -47,7 +47,7 @@ async function populateMarkers(){
         catch{}
         let address = String(feature['address']);
         let postalCode = String(feature['postalCode']);
-        let marker = new L.marker([feature['latitude'],feature['longitude']], {icon: getIcon(iconUrl)}).bindPopup(
+        let marker = new L.marker([feature['latitude'],feature['longitude']], {icon: getIcon(iconUrl)}).bindTooltip(
             "<b>Name:</b> "+ name +
             "<br><b>Address:</b> "+ address +
             "<br><b>Postcode:</b> "+ postalCode

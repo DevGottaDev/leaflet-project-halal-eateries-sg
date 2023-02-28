@@ -2,7 +2,7 @@ const coordsCsv = 'https://raw.githubusercontent.com/RecursiveDev/tgc-proj1/main
 const restaurantJson = 'https://raw.githubusercontent.com/RecursiveDev/leaflet-project-halal-eateries-sg/main/datasources/muis/halal-eateries-small.json'
 
 const foursquare = 'https://api.foursquare.com/v3/places/search';
-const token = 'fsq3QDlVAvdvODCl95JV6QMgINC/ZJNmV/w5t0nTeL7WTxw=';
+const token = 'fsq3Ea7301GXDGdL+eWZBEtsKa4xCAOuOr3H/sdFEncUCzQ=';
 
 
 
