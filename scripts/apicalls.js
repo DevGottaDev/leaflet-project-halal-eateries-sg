@@ -1,7 +1,9 @@
 const coordsCsv = 'https://raw.githubusercontent.com/RecursiveDev/tgc-proj1/main/datasources/muis_coordinates-small.csv'
 const restaurantJson = 'https://raw.githubusercontent.com/RecursiveDev/leaflet-project-halal-eateries-sg/main/datasources/muis/halal-eateries-small.json'
 
-const foursquare = 'https://api.foursquare.com/v3/places/search';
+const foursquareplaces = 'https://api.foursquare.com/v3/places/search';
+let foursquarephotos1 = 'https://api.foursquare.com/v3/places/'
+let foursquarephotos2 = '/photos?limit=1&sort=POPULAR';
 const token = 'fsq3Ea7301GXDGdL+eWZBEtsKa4xCAOuOr3H/sdFEncUCzQ=';
 
 
@@ -13,13 +15,16 @@ async function fetchCoords(){
 }
 
 async function fetchRestaurant(){
-    let response = (await axios.get(restaurantJson)).data;
+    let response = (await axios.get(restaurantJson,
+        {
+            valdidateStatus: "false"
+        })).data;
     // console.log(response);
     return response;
 }
 
 async function fetchFoursquare(restaurantName){
-    let response = (await axios.get(foursquare,{
+    let response = (await axios.get(foursquareplaces,{
         'params': {
             'near': 'singapore',
             'query': restaurantName,
@@ -31,8 +36,20 @@ async function fetchFoursquare(restaurantName){
             'Accept': 'application/json',
             'Authorization': token
         }
-    })).data;
+    }).catch()).data;
     // console.log(response);
+    return response;
+}
+
+async function fetchFoursquarephoto(locationId){
+    let foursquarephotos = foursquarephotos1 + locationId + foursquarephotos2;
+    let response = (await axios.get(foursquarephotos,{
+        'headers': {
+            'Accept': 'application/json',
+            'Authorization': token
+        }
+    })).data;
+    //console.log(response);
     return response;
 }
 

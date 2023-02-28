@@ -40,22 +40,30 @@ async function populateMarkers(){
         let name = String(feature['name']);
         let foursquare = await fetchFoursquare(name);
         let iconUrl = 'https://ss3.4sqi.net/img/categories_v2/food/default_64.png'
+        let photoUrl = "";
         try{
         iconUrl = String(foursquare.results[0].categories[0].icon.prefix) + '64.png'
         // console.log(iconUrl);
+        let fsq_id = String(foursquare.results[0].fsq_id);
+        // console.log(fsq_id);
+        let photoObj = await fetchFoursquarephoto(fsq_id);
+        photoUrl = String(photoObj[0].prefix) + "150x150" + String(photoObj[0].suffix);
+        // console.log('photourl is: ' + photoUrl);
         }
-        catch{}
+        catch(err){
+            console.log("error is :" + err)
+        }
         let address = String(feature['address']);
         let postalCode = String(feature['postalCode']);
-        let marker = new L.marker([feature['latitude'],feature['longitude']], {icon: getIcon(iconUrl)}).bindTooltip(
+        let marker = new L.marker([feature['latitude'],feature['longitude']], {icon: getIcon(iconUrl)}).bindPopup(
             "<b>Name:</b> "+ name +
             "<br><b>Address:</b> "+ address +
-            "<br><b>Postcode:</b> "+ postalCode
-        ).bindPopup(
-            "<b>Name:</b> "+ name +
-            "<br><b>Address:</b> "+ address +
-            "<br><b>Postcode:</b> "+ postalCode
+            "<br><b>Postcode:</b> "+ postalCode +
+            `<br><img src="`+ photoUrl + `" class = "center-block" alt="No image found">`
         );
+        marker.on('mouseover', function(){
+            this.openPopup();
+        })
         markers.push(marker);
     }
     return markers;
@@ -73,7 +81,8 @@ async function buildMap(){
     let overlayLayers = {
         "Halal Restaurants": locations.addTo(map)
     }
-    let layerControl = L.control.layers(baseLayers, overlayLayers).addTo(map);
+    L.control.layers(baseLayers, overlayLayers).addTo(map);
+    L.Control.geocoder().addTo(map);
 }
 
 async function mapInit(){

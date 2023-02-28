@@ -23,3 +23,15 @@ html, body {
 .input-group{
   width:40%;
 }
+
+.leaflet-popup img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+/* .leaflet-popup-content-wrapper{
+  background-color: rgb(41, 187, 41);
+
+} */
