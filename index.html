@@ -5,13 +5,55 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Halal GoWhere?</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css">
   <link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
-  <div id="navbarplaceholder">todo:navbar here
+  <div id="navbar">
+    <nav class="navbar p-0 navbar-dark bg-dark sticky-top navbar-inverse navbar-expand-md ">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="cover.html">
+          <img id =navbar-logo src="assets/logo.png" alt="">
+        </a>
+        <div class="input-group float-left">
+          <div class="form-outline">
+            <input type="search" id="form1" class="form-control-sm" placeholder ="Search location" />
+          </div>
+          <button type="button" class="btn btn-sm btn-success">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+        <!-- Toggler/collapsible Button -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link text-white" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="">Gallery</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="">Contact Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="">Career</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
   </div>
   <div id="map"></div>
   <button id="testbtn">test</button>
