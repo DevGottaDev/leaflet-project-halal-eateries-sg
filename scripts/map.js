@@ -51,7 +51,10 @@ async function populateMarkers(){
             "<b>Name:</b> "+ name +
             "<br><b>Address:</b> "+ address +
             "<br><b>Postcode:</b> "+ postalCode
-
+        ).bindPopup(
+            "<b>Name:</b> "+ name +
+            "<br><b>Address:</b> "+ address +
+            "<br><b>Postcode:</b> "+ postalCode
         );
         markers.push(marker);
     }

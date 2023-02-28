@@ -22,14 +22,14 @@ async function fetchFoursquare(restaurantName){
     let response = (await axios.get(foursquare,{
         'params': {
             'near': 'singapore',
-            'query': restaurantName
+            'query': restaurantName,
+            'categories':'13000',
+            'sort':'relevance',
+            'limit':'1'
         },
         'headers': {
             'Accept': 'application/json',
-            'Authorization': token,
-            'Categories':'13000',
-            'Sort':'relevance',
-            'limit':'1'
+            'Authorization': token
         }
     })).data;
     // console.log(response);
