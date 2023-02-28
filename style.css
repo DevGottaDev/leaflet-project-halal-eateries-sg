@@ -5,3 +5,7 @@
 #map {
     height: 90vh;
 }
+
+.leaflet-marker-icon {
+    filter: invert(64%) sepia(30%) saturate(1225%) hue-rotate(61deg) brightness(150%) contrast(84%);
+}

@@ -1,6 +1,11 @@
 const coordsCsv = 'https://raw.githubusercontent.com/RecursiveDev/tgc-proj1/main/datasources/muis_coordinates-small.csv'
 const restaurantJson = 'https://raw.githubusercontent.com/RecursiveDev/leaflet-project-halal-eateries-sg/main/datasources/muis/halal-eateries-small.json'
 
+const foursquare = 'https://api.foursquare.com/v3/places/search';
+const token = 'fsq3QDlVAvdvODCl95JV6QMgINC/ZJNmV/w5t0nTeL7WTxw=';
+
+
+
 async function fetchCoords(){
     let response = (await axios.get(coordsCsv)).data;
     // console.log(response);
@@ -9,6 +14,24 @@ async function fetchCoords(){
 
 async function fetchRestaurant(){
     let response = (await axios.get(restaurantJson)).data;
+    // console.log(response);
+    return response;
+}
+
+async function fetchFoursquare(restaurantName){
+    let response = (await axios.get(foursquare,{
+        'params': {
+            'near': 'singapore',
+            'query': restaurantName
+        },
+        'headers': {
+            'Accept': 'application/json',
+            'Authorization': token,
+            'Categories':'13000',
+            'Sort':'relevance',
+            'limit':'1'
+        }
+    })).data;
     // console.log(response);
     return response;
 }

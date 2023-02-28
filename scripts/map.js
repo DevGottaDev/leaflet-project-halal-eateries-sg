@@ -1,10 +1,13 @@
-let halalIcon = L.icon({
-    iconUrl: 'https://github.com/RecursiveDev/tgc-proj1/blob/main/assets/halal_icon.png?raw=true',
+function getIcon(iconUrl){
+    let halalIcon = L.icon({
+        iconUrl: iconUrl,
+        iconSize:     [48, 48], // size of the icon
+        iconAnchor:   [18, 18], // point of the icon which will correspond to marker's location
+        popupAnchor:  [0, -10] // point from which the popup should open relative to the iconAnchor
+    });
+    return halalIcon
+}
 
-    iconSize:     [30, 37.5], // size of the icon
-    iconAnchor:   [18, 18], // point of the icon which will correspond to marker's location
-    popupAnchor:  [0, -10] // point from which the popup should open relative to the iconAnchor
-});
 
 let center = [1.3306,103.8158]; // center latlong
 
@@ -25,10 +28,17 @@ async function populateMarkers(){
 
     for (let i = 0; i < features.length; i++) {
         let feature = features[i];
-        let name = String(feature['name'])
-        let address = String(feature['address'])
-        let postalCode = String(feature['postalCode'])
-        let marker = new L.marker([feature['latitude'],feature['longitude']], {icon: halalIcon}).bindPopup(
+        let name = String(feature['name']);
+        let foursquare = await fetchFoursquare(name);
+        let iconUrl = 'https://ss3.4sqi.net/img/categories_v2/food/default_64.png'
+        try{
+        iconUrl = String(foursquare.results[0].categories[0].icon.prefix) + '64.png'
+        console.log(iconUrl);
+        }
+        catch{}
+        let address = String(feature['address']);
+        let postalCode = String(feature['postalCode']);
+        let marker = new L.marker([feature['latitude'],feature['longitude']], {icon: getIcon(iconUrl)}).bindPopup(
             "<b>Name:</b> "+ name +
             "<br><b>Address:</b> "+ address +
             "<br><b>Postcode:</b> "+ postalCode
@@ -57,8 +67,8 @@ async function buildMap(){
     });
 
     let baseLayers = {
-        "OneMap - Day Theme": ompDay.addTo(map),
-        "OneMap - Night Theme": ompNight
+        "OneMap - Day Theme": ompDay,
+        "OneMap - Night Theme": ompNight.addTo(map)
 
 
     }
