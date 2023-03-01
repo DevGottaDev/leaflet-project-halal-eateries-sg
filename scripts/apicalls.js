@@ -17,7 +17,7 @@ async function fetchCoords(){
 async function fetchRestaurant(){
     let response = (await axios.get(restaurantJson,
         )).data;
-    console.log(response);
+    // console.log(response);
     return response;
 }
 
