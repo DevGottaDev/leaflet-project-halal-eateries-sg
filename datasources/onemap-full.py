@@ -53,7 +53,7 @@ for source in dataSource:
     resData.append(data)
 
 
-    with open('muis_coordinates-small.csv','a',encoding ='utf-8',newline='') as b:
+    with open('muis_coordinates.csv','a',encoding ='utf-8',newline='') as b:
         writer=csv.writer(b)
         writer.writerows(resData)
 

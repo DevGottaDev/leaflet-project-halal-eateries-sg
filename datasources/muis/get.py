@@ -49,14 +49,19 @@ while i <= 10:
     #Iterate through all the restaurants on the page
     for index, restaurant in enumerate(restaurantNames):
         #name of restaurant
-        name = restaurantNames[index].text.strip()
-        addressRaw = ''.join(restaurantLocations[index].find('br').previous_sibling)
-        address = re.sub(r"\n", "", addressRaw).strip()
-        postalCodeRaw = ''.join(restaurantLocations[index].find('br').next_sibling)
-        postalCode = re.sub(r"\n", "", postalCodeRaw).strip()
-        data ={'id': str(rest_no),'name':name, 'address':address, 'postalCode':postalCode}
-        res.append(data)
-        rest_no+=1
+        try:
+            name = restaurantNames[index].text.strip()
+            addressRaw = ''.join(restaurantLocations[index].find('br').previous_sibling)
+            address = re.sub(r"\n", "", addressRaw).strip()
+            postalCodeRaw = ''.join(restaurantLocations[index].find('br').next_sibling)
+            postalCode = re.sub(r"\n", "", postalCodeRaw).strip()
+            data ={'id': str(rest_no),'name':name, 'address':address, 'postalCode':postalCode}
+            res.append(data)
+            rest_no+=1
+        except:
+            name = restaurantNames[index].text.strip()
+            print("Unable to parse: /n" + name)
+            print("Found on page:" + i)
 
     # Click next page
     driver.find_element("xpath","//a[@title='>> Next']").click()
