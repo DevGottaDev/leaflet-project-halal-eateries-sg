@@ -1,4 +1,4 @@
-const coordsCsv = 'https://raw.githubusercontent.com/RecursiveDev/tgc-proj1/main/datasources/muis_coordinates-small.csv'
+const coordsCsv = 'https://raw.githubusercontent.com/RecursiveDev/leaflet-project-halal-eateries-sg/main/datasources/muis_coordinates-small.csv'
 const restaurantJson = 'https://raw.githubusercontent.com/RecursiveDev/leaflet-project-halal-eateries-sg/main/datasources/muis/halal-eateries-small.json'
 
 const foursquareplaces = 'https://api.foursquare.com/v3/places/search';
@@ -16,10 +16,8 @@ async function fetchCoords(){
 
 async function fetchRestaurant(){
     let response = (await axios.get(restaurantJson,
-        {
-            valdidateStatus: "false"
-        })).data;
-    // console.log(response);
+        )).data;
+    console.log(response);
     return response;
 }
 
