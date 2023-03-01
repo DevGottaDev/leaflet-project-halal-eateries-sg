@@ -17,7 +17,6 @@ html, body {
 
 .leaflet-marker-icon {
     filter: invert(64%) sepia(30%) saturate(1225%) hue-rotate(61deg) brightness(150%) contrast(84%) drop-shadow(0px 1px 0 #556b2F) drop-shadow(0px -1px 0 #556b2F);
-    /* -webkit-filter: invert(64%) sepia(30%) saturate(1225%) hue-rotate(61deg) brightness(150%) contrast(84%) drop-shadow(2px 1px 0 white) drop-shadow(-2px -1px 0 white); */
 }
 
 .input-group{
@@ -29,6 +28,22 @@ html, body {
   margin-left: auto;
   margin-right: auto;
   width: 50%;
+}
+
+.marker-cluster-small {
+  background-color: #44b124;
+  box-shadow: 0 0 3px 1px #44b124;
+  opacity: 0.1;
+  filter: none;
+}
+
+.marker-cluster-small div {
+  background-color: #047cb8;
+  44b124
+  box-shadow: 0 0 3px 2px #047cb8;
+  color: #fff;
+  font-weight:bold;
+  filter: none;
 }
 
 /* .leaflet-popup-content-wrapper{

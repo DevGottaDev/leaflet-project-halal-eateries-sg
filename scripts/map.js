@@ -33,7 +33,8 @@ function getIcon(iconUrl){
 //populate layer with markers using foursquare icons
 async function populateMarkers(){
     let features = await getFeatures();
-    let markers = [];
+    let clusters = L.markerClusterGroup({
+    });
 
     for (let i = 0; i < features.length; i++) {
         let feature = features[i];
@@ -64,22 +65,21 @@ async function populateMarkers(){
         marker.on('mouseover', function(){
             this.openPopup();
         })
-        markers.push(marker);
+        clusters.addLayer(marker);
     }
-    return markers;
+    return clusters;
 }
 
 async function buildMap(){
-    markers = await populateMarkers()
-    
-    let locations = L.layerGroup(markers)
-    initTiles(locations);
+    let markers = await populateMarkers();    
+    // let locations = L.layerGroup(markers)
+    initTiles(markers);
 
     let baseLayers = {
     }
 
     let overlayLayers = {
-        "Halal Restaurants": locations.addTo(map)
+        "Halal Restaurants": markers.addTo(map)
     }
     L.control.layers(baseLayers, overlayLayers).addTo(map);
     L.Control.geocoder().addTo(map);
