@@ -1,23 +1,27 @@
 let center = [1.3306,103.8158]; // center latlong
-
-let map = L.map('map').setView(center, 12);
-
-// setup the tile layers
 let mapBounds = new L.LatLngBounds(
     new L.LatLng(1.1443, 103.596),
     new L.LatLng(1.4835, 104.1));
 
-function initTiles(locations){
-    ompNight = L.tileLayer('https://maps-{s}.onemap.sg/v3/Night/{z}/{x}/{y}.png', {
-        detectRetina: true,
-        maxZoom: 19,
-        minZoom: 13,
-        zoom: 13,
-        maxBounds: mapBounds,
-        maxBoundsViscosity: 1,
-        layers: locations
-    }).addTo(map);
-}
+var map = L.map('map', {
+    center: center,
+    zoom: 13,
+    maxZoom: 19,
+    minZoom: 13,
+    maxBounds: mapBounds,
+    maxBoundsViscosity: 1,
+});
+
+let ompNight = L.tileLayer('https://maps-{s}.onemap.sg/v3/Night/{z}/{x}/{y}.png', {
+    detectRetina: true
+}).addTo(map);
+
+let baseLayers = {
+    "OneMap Night Mode": ompNight
+};
+let overlayLayers= {};
+
+let layerControl = L.control.layers(baseLayers, overlayLayers).addTo(map);
 
 //set the icon parameters
 function getIcon(iconUrl){
@@ -51,7 +55,8 @@ async function populateMarkers(){
         // console.log('photourl is: ' + photoUrl);
         }
         catch(err){
-            console.log("error is :" + err)
+            console.log("error is :" + err + "for index " + i + "with name " + name);
+            console.log(foursquare);
         }
         let address = String(feature['address']);
         let postalCode = String(feature['postalCode']);
@@ -70,22 +75,11 @@ async function populateMarkers(){
 }
 
 async function buildMap(){
-    markers = await populateMarkers()
-    
-    let locations = L.layerGroup(markers)
-    initTiles(locations);
-
-    let baseLayers = {
-    }
-
-    let overlayLayers = {
-        "Halal Restaurants": locations.addTo(map)
-    }
-    L.control.layers(baseLayers, overlayLayers).addTo(map);
-    L.Control.geocoder().addTo(map);
+    markers = await populateMarkers();
+    let locations = L.layerGroup(markers).addTo(map);
+    layerControl.addOverlay(locations, "Halal Restaurants");
 }
 
 async function mapInit(){
    await buildMap();
-
 }
