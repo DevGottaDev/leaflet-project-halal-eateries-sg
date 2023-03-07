@@ -35,3 +35,17 @@ html, body {
   background-color: rgb(41, 187, 41);
 
 } */
+
+.leaflet-popup-content{
+  margin:0;
+  overflow:hidden;
+}
+
+.leaflet-popup-content-wrapper{
+  overflow:hidden;
+  padding:0;
+}
+
+.addressDiv{
+  margin:1%;
+}
