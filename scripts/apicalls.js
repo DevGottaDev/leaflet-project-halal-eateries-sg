@@ -1,5 +1,5 @@
-const coordsCsv = 'https://raw.githubusercontent.com/RecursiveDev/leaflet-project-halal-eateries-sg/main/datasources/muis_coordinates-small.csv'
-const restaurantJson = 'https://raw.githubusercontent.com/RecursiveDev/leaflet-project-halal-eateries-sg/main/datasources/muis/halal-eateries-small.json'
+const coordsCsv = 'https://raw.githubusercontent.com/RecursiveDev/leaflet-project-halal-eateries-sg/main/datasources/muis_coordinates-small.csv';
+const restaurantJson = 'https://raw.githubusercontent.com/RecursiveDev/leaflet-project-halal-eateries-sg/main/datasources/muis/halal-eateries-small.json';
 
 const foursquareplaces = 'https://api.foursquare.com/v3/places/search';
 let foursquarephotos1 = 'https://api.foursquare.com/v3/places/'
