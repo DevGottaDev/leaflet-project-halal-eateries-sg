@@ -3,6 +3,7 @@ let mapBounds = new L.LatLngBounds(
     new L.LatLng(1.1443, 103.596),
     new L.LatLng(1.4835, 104.1));
 
+//initialize the map
 var map = L.map('map', {
     center: center,
     zoom: 13,
@@ -19,7 +20,9 @@ let ompNight = L.tileLayer('https://maps-{s}.onemap.sg/v3/Night/{z}/{x}/{y}.png'
 let baseLayers = {
     "OneMap Night Mode": ompNight
 };
-let overlayLayers= {};
+
+let locations = L.layerGroup(null).addTo(map);
+let overlayLayers= {"Halal Restaurants": locations};
 
 let layerControl = L.control.layers(baseLayers, overlayLayers).addTo(map);
 
@@ -37,7 +40,6 @@ function getIcon(iconUrl){
 //populate layer with markers using foursquare icons
 async function populateMarkers(){
     let features = await getFeatures();
-    let markers = [];
 
     for (let i = 0; i < features.length; i++) {
         let feature = features[i];
@@ -51,16 +53,16 @@ async function populateMarkers(){
         let fsq_id = String(foursquare.results[0].fsq_id);
         // console.log(fsq_id);
         let photoObj = await fetchFoursquarephoto(fsq_id);
-        photoUrl = String(photoObj[0].prefix) + "150x150" + String(photoObj[0].suffix);
+        photoUrl = String(photoObj[0].prefix) + "500x200" + String(photoObj[0].suffix);
         // console.log('photourl is: ' + photoUrl);
         }
         catch(err){
             console.log("error is :" + err + "for index " + i + "with name " + name);
             console.log(foursquare);
         }
-        let address = String(feature['address']);
-        let postalCode = String(feature['postalCode']);
-        let marker = new L.marker([feature['latitude'],feature['longitude']], {icon: getIcon(iconUrl)}).bindPopup(
+        let address = String(feature.address);
+        let postalCode = String(feature.postalCode);
+        let marker = new L.marker([feature.latitude,feature.longitude], {icon: getIcon(iconUrl)}).bindPopup(
             "<b>Name:</b> "+ name +
             "<br><b>Address:</b> "+ address +
             "<br><b>Postcode:</b> "+ postalCode +
@@ -69,17 +71,11 @@ async function populateMarkers(){
         marker.on('mouseover', function(){
             this.openPopup();
         })
-        markers.push(marker);
+        locations.addLayer(marker);
     }
-    return markers;
 }
 
-async function buildMap(){
-    markers = await populateMarkers();
-    let locations = L.layerGroup(markers).addTo(map);
-    layerControl.addOverlay(locations, "Halal Restaurants");
-}
-
+//main map method
 async function mapInit(){
-   await buildMap();
+    await populateMarkers();
 }
