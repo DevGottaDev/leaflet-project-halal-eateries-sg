@@ -21,6 +21,15 @@ let baseLayers = {
     "OneMap Night Mode": ompNight
 };
 
+//theme layers
+let ompDay = L.tileLayer('https://maps-{s}.onemap.sg/v3/Default/{z}/{x}/{y}.png', {
+    detectRetina: true
+});
+let ompAged = L.tileLayer('https://maps-{s}.onemap.sg/v3/Original/{z}/{x}/{y}.png', {
+    detectRetina: true
+});
+
+//initialize overlay layers
 let locations = L.layerGroup(null);
 let overlayLayers= {"Halal Restaurants": locations};
 

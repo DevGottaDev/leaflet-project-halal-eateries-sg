@@ -1,18 +1,34 @@
-let testbtn = document.querySelector('#testbtn');
-testbtn.addEventListener('click', switchLayer);
+let defaultTheme = document.querySelector('#default-theme');
+defaultTheme.addEventListener('click', switchLayerDefault);
 
-function switchLayer() {
-  let ompDay = L.tileLayer('https://maps-{s}.onemap.sg/v3/Default/{z}/{x}/{y}.png', {
-    detectRetina: true
-}).addTo(map);
+let nightTheme = document.querySelector('#night-theme');
+nightTheme.addEventListener('click', switchLayerNight);
 
-    console.log("button clicked");
-    // layerControl.removeLayer(locations);
-    // mcgLayerClustering.checkOut(locations);
-    let iconColor = document.querySelectorAll('.leaflet-marker-icon');
-    console.log(iconColor);
-    iconColor.style.filter = 'none';
-    layerControl.addBaseLayer(ompDay, 'OneMap Day Mode')
-    layerControl.removeLayer(ompNight);
-  }
-  mapInit();
+let agedTheme = document.querySelector('#old-theme');
+agedTheme.addEventListener('click', switchLayerOld);
+
+function switchLayerDefault() {
+  layerControl.removeLayer(ompNight);
+  layerControl.removeLayer(ompDay);
+  layerControl.removeLayer(ompAged);
+  layerControl.addBaseLayer(ompDay, 'OneMap Day Mode');
+  ompDay.addTo(map);
+}
+
+function switchLayerNight() {
+  layerControl.removeLayer(ompNight);
+  layerControl.removeLayer(ompDay);
+  layerControl.removeLayer(ompAged);
+  layerControl.addBaseLayer(ompNight, 'OneMap Night Mode');
+  ompNight.addTo(map);
+}
+
+function switchLayerOld() {
+  layerControl.removeLayer(ompNight);
+  layerControl.removeLayer(ompDay);
+  layerControl.removeLayer(ompAged);
+  layerControl.addBaseLayer(ompAged, 'OneMap Classic Mode');
+  ompAged.addTo(map);
+}
+
+mapInit();
