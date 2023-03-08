@@ -34,7 +34,7 @@ html, body {
 /*end of logo animation */
 
 #map {
-    height: 90vh;
+    height: 100vh;
 }
 
 .leaflet-marker-icon {
