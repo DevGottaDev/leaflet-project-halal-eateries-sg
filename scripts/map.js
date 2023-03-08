@@ -6,9 +6,9 @@ let mapBounds = new L.LatLngBounds(
 //initialize the map
 var map = L.map('map', {
     center: center,
-    zoom: 13,
+    zoom: 12.5,
     maxZoom: 19,
-    minZoom: 13,
+    minZoom: 12.5,
     maxBounds: mapBounds,
     maxBoundsViscosity: 1,
 });
@@ -21,10 +21,13 @@ let baseLayers = {
     "OneMap Night Mode": ompNight
 };
 
-let locations = L.layerGroup(null).addTo(map);
+let locations = L.layerGroup(null);
 let overlayLayers= {"Halal Restaurants": locations};
 
 let layerControl = L.control.layers(baseLayers, overlayLayers).addTo(map);
+
+//layer clustering plugin
+let mcgLayerClustering = L.markerClusterGroup.layerSupport();
 
 //set the icon parameters
 function getIcon(iconUrl){
@@ -73,6 +76,8 @@ async function populateMarkers(){
             this.openPopup();
         })
         locations.addLayer(marker);
+        mcgLayerClustering.checkIn(locations).addTo(map);
+        locations.addTo(map);
     }
 }
 
