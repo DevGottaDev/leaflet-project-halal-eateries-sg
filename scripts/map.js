@@ -1,4 +1,4 @@
-let center = [1.3306,103.8158]; // center latlong
+let center = [1.3606,103.8158]; // center latlong
 let mapBounds = new L.LatLngBounds(
     new L.LatLng(1.1443, 103.596),
     new L.LatLng(1.4835, 104.1));
@@ -6,9 +6,9 @@ let mapBounds = new L.LatLngBounds(
 //initialize the map
 var map = L.map('map', {
     center: center,
-    zoom: 12,
+    zoom: 13,
     maxZoom: 19,
-    minZoom: 12,
+    minZoom: 13,
     maxBounds: mapBounds,
     maxBoundsViscosity: 1,
 });

@@ -12,6 +12,7 @@ html, body {
     animation: spin 5s 1;
 }
 
+/* logo animation credit to https://codepen.io/WhirlwindRhyme/pen/PwrMYE */
 #navbar-logo:hover{
   animation: spin 5s infinite;
 }
@@ -29,6 +30,8 @@ html, body {
    transform: rotateY(-360deg);
  }
 }
+
+/*end of logo animation */
 
 #map {
     height: 90vh;
@@ -66,4 +69,9 @@ html, body {
 
 .address-div{
   margin:1%;
+}
+
+.navbar-brand span {
+  font-family: 'Kollektif', sans-serif;
+  font-weight: 'bold';
 }
