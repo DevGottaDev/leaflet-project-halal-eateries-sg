@@ -22,14 +22,6 @@
           <img id =navbar-logo src="assets/logo.png" alt="">
           <span> Halal Go Where?</span>
         </a>
-        <div class="input-group float-left">
-          <div class="form-outline">
-            <input type="search" id="form1" class="form-control-sm" placeholder ="Search location" />
-          </div>
-          <button type="button" class="btn btn-sm btn-success">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
         <!-- Toggler/collapsible Button -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
           <span class="navbar-toggler-icon"></span>
@@ -37,7 +29,7 @@
 
         <!-- Navbar links -->
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
-          <ul class="navbar-nav">
+          <ul class="navbar-nav nav-fill w-100">
             <li class="nav-item">
               <a class="map-theme nav-link text-white" style = 'cursor: pointer' id ='default-theme' >Day Theme</a>
             </li>
@@ -54,7 +46,7 @@
     </nav>
   </div>
   <div id="map"></div>
-  <button id="testbtn">test</button>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.4/axios.min.js"></script>
   <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
   <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>

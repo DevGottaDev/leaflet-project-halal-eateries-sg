@@ -8,8 +8,9 @@ var map = L.map('map', {
     center: center,
     zoom: 12,
     maxZoom: 19,
-    minZoom: 12,
+    minZoom: 10,
     maxBounds: mapBounds,
+    fitBounds: mapBounds,
     maxBoundsViscosity: 1,
 });
 
