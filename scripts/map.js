@@ -6,9 +6,9 @@ let mapBounds = new L.LatLngBounds(
 //initialize the map
 var map = L.map('map', {
     center: center,
-    zoom: 12.5,
+    zoom: 12,
     maxZoom: 19,
-    minZoom: 12.5,
+    minZoom: 12,
     maxBounds: mapBounds,
     maxBoundsViscosity: 1,
 });
