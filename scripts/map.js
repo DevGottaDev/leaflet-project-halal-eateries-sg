@@ -43,6 +43,8 @@ function getIcon(iconUrl){
 //populate layer with markers using foursquare icons
 async function populateMarkers(){
     let features = await getFeatures();
+    mcgLayerClustering.checkIn(locations).addTo(map);
+    locations.addTo(map);
 
     for (let i = 0; i < features.length; i++) {
         let feature = features[i];
@@ -76,8 +78,6 @@ async function populateMarkers(){
             this.openPopup();
         })
         locations.addLayer(marker);
-        mcgLayerClustering.checkIn(locations).addTo(map);
-        locations.addTo(map);
     }
 }
 
