@@ -22,14 +22,36 @@ Currently, there exists only a few resources with which Muslims living in Singap
 ### Goals  
 This app is targeted at Muslims living in Singapore as well as any potential Muslim visitors to Singapore such as tourists etc. The app also aims to help support halal-ceritfied establishments by raising awareness of their existence, helping to keep them in business, allowing for more diversity in menu options for Muslim consumers.
 
+## UI/UX
+Below we willd discuss the various decisions made for the UI/UX of this project.,
+***
 ### Wireframes/Mockups  
-<p align="center" style="width 50%"><img src="https://user-images.githubusercontent.com/31808408/224069121-a38c0a3f-2bca-46b9-a542-17ffbe88603f.png" alt="Desktop wireframe"/></p>
-<br><i>Wireframe for large screen devices.</i>
+<p align="center"><img src="https://user-images.githubusercontent.com/31808408/224069121-a38c0a3f-2bca-46b9-a542-17ffbe88603f.png" alt="Desktop wireframe" width="50%"/></p>
+<span align="center"><i>Wireframe for large screen devices.</i></span>
 
+***
 
+<p align="center"><img src="https://user-images.githubusercontent.com/31808408/224069788-6d67b2b1-7e19-4c91-a608-69370142dd9e.png" alt="Mobile wireframe" width="30%"/></p>
+<span align="center"><i>Wireframe for smaller screen devices.</i></span>
 
-<p align="center" style="width 50%"><img src="https://user-images.githubusercontent.com/31808408/224069788-6d67b2b1-7e19-4c91-a608-69370142dd9e.png" alt="Mobile wireframe"/></p>
-<br><i>Wireframe for smaller screen devices.</i>
+***
+
+### Layout
+The layout was chosen to be relatively simple as can be seen from the wireframes. The goal of this was to make the application intuitive and easy to navigate even for non tech-savvy users such as possibly the elderly. This was done with the end goal of making the app more accessible and usable for the target audience.
+
+### Themes/Colors
+The app by default loads in nightmode. This was done deliberately due to the rising popularity of dark/night mode themes being used by the modern day end user. However, to allow for flexibility/preference, there are several clickable options in the collapsible navbar to allow the user to choose a theme more to their liking.
+
+The icons were chosen to be green to thematically represent the malay cultural dumppling, the "Ketupat" which is traditionally wrapped in green Pandan leaves.
+
+### Icons
+The icons were taken from Foursquare's API allowing the app to be infinitely scalable no matter the number of halal-retaurant geodata is fed into it. Eateries that do not have a matching entry in Foursquare are instead given Foursquare's default restaurant icon of a fork and spoon.
+
+This was done to allow users to understand the cuisine of the eatery at a quick glance without the need to check each one individually.
+
+### Fonts
+FontAwesome was used for icons in various positions on the application. The [Pacifico](https://fonts.google.com/specimen/Pacifico) font from Google Fonts was used for styling the sitename next to the logo. [Roboto](https://fonts.google.com/specimen/Roboto) font was used for styling the map-marker popups for a clean, crisp look.
+
 
 
 
