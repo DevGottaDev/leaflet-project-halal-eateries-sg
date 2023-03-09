@@ -81,7 +81,7 @@ async function populateMarkers(){
             "<div class = 'address-div'>" +
             `<i class="fa fa-comment" aria-hidden="true"></i><b><u> Name</u></b><br> `+ name +
             `<br><br><i class="fa fa-map-marker" aria-hidden="true"></i><b><u> Address</u></b><br> `+ address +
-            `<br><br><i class="fa fa-building" aria-hidden="true"></i><b>Postcode</u></b><br> `+ postalCode + "</div>" +
+            `<br><br><i class="fa fa-building" aria-hidden="true"></i><b><u>Postcode</u></b><br> `+ postalCode + "</div>" +
             `<img src="`+ photoUrl + `" onerror="this.style.display='none'" class = "img-responsive w-100" alt="" style="height:50%">`
         );
         marker.on('mouseover', function(){
