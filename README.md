@@ -11,9 +11,9 @@ Try out the site [here](https://halalgowhere.netlify.app/).
 Currently, there exists only a few resources with which Muslims living in Singapore can use to find places to eat. They are the official MUIS [website](https://www.muis.gov.sg/Halal/Halal-Certification/Certified-Eating-Establishments#) and the MuslimSG application. However both sources come with the downsides. MUIS's site only allows the user to check if a restaurant is halal certified and the MuslimSG application only works if downloaded and installed on a compatible device. Halal Go Where? (Refered to from here on HGW) allows the user to access an interactive leaflet-map based application from any device with a browser.
 
 ### Where is the data from?
-The data used was scraped from MUIS's official website using the Selenium and BeautifulSoup4 plugins for python. You can view the source code of the scraper [here](https://github.com/RecursiveDev/leaflet-project-halal-eateries-sg/tree/main/datasources/muis).
+The data used was scraped from MUIS's official website using the Selenium and BeautifulSoup4 plugins for python into a JSON file.. You can view the source code of the scraper [here](https://github.com/RecursiveDev/leaflet-project-halal-eateries-sg/tree/main/datasources/muis). This was necessary as there currently does not exist any public API of all Halal eateries in Singapore.
 
-The data was then manually cleaned due to a large amount of incorrect data on MUIS's site and then reverse geo-coded through the [OneMap Search API](https://app.swaggerhub.com/apis/onemap-sg/new-onemap-api/1.0.4#/OneMap%20REST%20APIs/search).
+The data was then manually cleaned due to a large amount of incorrect data on MUIS's site and then reverse geo-coded through the [OneMap Search API](https://app.swaggerhub.com/apis/onemap-sg/new-onemap-api/1.0.4#/OneMap%20REST%20APIs/search). The results were then stored in CSV format for later use by the main web application.
 
 ### User Story
 | User Story | Acceptance Criteria |
