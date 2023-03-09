@@ -26,9 +26,14 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
           <span class="navbar-toggler-icon"></span>
         </button>
-
         <!-- Navbar links -->
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <form class="d-flex" id="search-bar" autocomplete="off">
+            <input class="form-control" type="search" placeholder="Search" aria-label="Search" list="search-results" id="search-input">
+            <datalist id="search-results">
+            </datalist>
+            <button id="search-button" class="btn btn-success" type="submit"><i class="fas fa-search"></i></button>
+          </form>
           <ul class="navbar-nav nav-fill w-100">
             <li class="nav-item">
               <a class="map-theme nav-link text-white" style = 'cursor: pointer' id ='default-theme' >Day Theme</a>

@@ -1,3 +1,7 @@
+//initialize map
+mapInit();
+
+//start of clickable themes
 let defaultTheme = document.querySelector('#default-theme');
 defaultTheme.addEventListener('click', switchLayerDefault);
 
@@ -13,7 +17,7 @@ function switchLayerDefault() {
   layerControl.removeLayer(ompAged);
   layerControl.addBaseLayer(ompDay, 'OneMap Day Mode');
   ompDay.addTo(map);
-  document.querySelector('#map').style.background='#6da7e3';
+  document.querySelector('#map').style.background = '#6da7e3';
 }
 
 function switchLayerNight() {
@@ -22,7 +26,7 @@ function switchLayerNight() {
   layerControl.removeLayer(ompAged);
   layerControl.addBaseLayer(ompNight, 'OneMap Night Mode');
   ompNight.addTo(map);
-  document.querySelector('#map').style.background='#003652';
+  document.querySelector('#map').style.background = '#003652';
 }
 
 function switchLayerOld() {
@@ -31,7 +35,37 @@ function switchLayerOld() {
   layerControl.removeLayer(ompAged);
   layerControl.addBaseLayer(ompAged, 'OneMap Classic Mode');
   ompAged.addTo(map);
-  document.querySelector('#map').style.background='#bdd3f9';
+  document.querySelector('#map').style.background = '#bdd3f9';
 }
+//end of clickable themes
 
-mapInit();
+//autocomplete search with flyto
+const searchInput = document.querySelector('#search-input');
+const searchResults = document.querySelector('#search-results');
+searchInput.addEventListener('input', async function () {
+  try {
+    results = await getLocation(searchInput.value);
+    searchResults.innerHTML = '';
+    for (let i = 0; i <= results.length; i++) {
+      const option = document.createElement('option');
+      option.value = results[i].name;
+      searchResults.appendChild(option);
+    }
+  }
+  catch (err) {
+  }
+});
+
+const searchBtn = document.querySelector('#search-button');
+searchBtn.addEventListener('click', async function (event) {
+  event.preventDefault();
+  results = await getLocation(searchInput.value);
+  console.log(results);
+  let searchMarker = new L.marker([results[0].latitude, results[0].longitude]).bindPopup(
+    "<div>"+
+    "<b>Name:</b> "+ results[0].name +
+    "</div>");
+  searchMarker.addTo(map);
+  map.flyTo([results[0].latitude, results[0].longitude], 16)
+
+});

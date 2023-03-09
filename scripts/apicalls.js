@@ -5,11 +5,11 @@ const coordsCsv = 'https://raw.githubusercontent.com/RecursiveDev/leaflet-projec
 const restaurantJson = 'https://raw.githubusercontent.com/RecursiveDev/leaflet-project-halal-eateries-sg/main/datasources/muis/halal-eateries-small.json';
 
 const foursquareplaces = 'https://api.foursquare.com/v3/places/search';
-let foursquarephotos1 = 'https://api.foursquare.com/v3/places/'
-let foursquarephotos2 = '/photos?limit=1&sort=POPULAR';
+const foursquarephotos1 = 'https://api.foursquare.com/v3/places/'
+const foursquarephotos2 = '/photos?limit=1&sort=POPULAR';
 const token = 'fsq3Ea7301GXDGdL+eWZBEtsKa4xCAOuOr3H/sdFEncUCzQ=';
 
-
+const onemapSearch ='https://developers.onemap.sg/commonapi/search';
 
 async function fetchCoords(){
     let response = (await axios.get(coordsCsv)).data;
@@ -79,4 +79,25 @@ async function getFeatures(){
     // console.log(parsedCoords)
     // console.log(markerData)
     return markerData;
+}
+
+async function getLocation(searchString){
+    let locResults =[];
+    let response = (await axios.get(onemapSearch,{
+        'params': {
+            'searchVal': searchString,
+            'returnGeom': 'Y',
+            'getAddrDetails':'Y',
+            'pageNum':'1'
+        }
+    })).data.results;
+
+    for (let i=0; i < response.length; i++){
+        let obj = {};
+        obj['name'] = response[i].SEARCHVAL;
+        obj['latitude'] = response[i].LATITUDE;
+        obj['longitude'] = response[i].LONGITUDE;
+        locResults.push(obj);
+    }
+    return locResults;
 }

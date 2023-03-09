@@ -72,8 +72,8 @@ async function populateMarkers(){
         // console.log('photourl is: ' + photoUrl);
         }
         catch(err){
-            console.log("error is :" + err + "for index " + i + "with name " + name);
-            console.log(foursquare);
+            // console.log("error is :" + err + "for index " + i + "with name " + name);
+            // console.log(foursquare);
         }
         let address = String(feature.address);
         let postalCode = String(feature.postalCode);
