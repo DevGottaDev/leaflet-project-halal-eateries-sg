@@ -26,12 +26,12 @@ This app is targeted at Muslims living in Singapore as well as any potential Mus
 <p align="center">
   <img src="https://user-images.githubusercontent.com/31808408/224069121-a38c0a3f-2bca-46b9-a542-17ffbe88603f.png" alt="Desktop wireframe"/>
 </p>
-Wireframe for large screen devices.
+<br><i>Wireframe for large screen devices.</i>
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/31808408/224069788-6d67b2b1-7e19-4c91-a608-69370142dd9e.png" alt="Mobile wireframe"/>
 </p>
-Wireframe for smaller screen devices.
+<br><i>Wireframe for smaller screen devices.</i>
 
 
 
