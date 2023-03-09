@@ -91,6 +91,15 @@ Debugging tools used were the developer's tools from Google Chrome Version 110.0
 ## Deployment
 The web app was deployed via [Netlify](https://www.netlify.com/). This github repository's main branch was connected via third-party auth to allow Netlify to dynamically fetch and deploy any changes made to the main branch.
 
+## Limitations
+1. The free api token from foursquare runs out quickly. This caused many issues when testing as the api calls are done via the frontend. This means any time the site is refreshed, the server will have to retrieve all the data from the api endpoints again.
+2. The data scraped from MUIS is largely erroneous. Many POIs are duplicated of have incorrect/dirty postal codes, preventing reverse geocoding. As a result some of the POI's had to be completely removed as there was no way to correctly find the information of the establishment.
+
+## Future Work
+1. The same api call used to fetch the cuisine of each restaurant for the icons can also be used to dynamically generate new layers allowing the user to filter for specific cuisines via the leaflet overlay layer aspect of the layer control box. This is the reason markercluster with layer support was added even for the current implementation.
+
+2. Leaflet sidebar plugin can be leveraged to display all eateries within a certain distance after the user triggers the search or geolocate features. This will allow the user to easily and quickly retrieve information about what halal eateries are available nearby.
+
 ## Credits and Attributions
 1. [OneMap Developer Portal](https://www.onemap.gov.sg/docs/) which was used for the autocomplete search function as well as for reverse geocoding the addresses scraped from MUIS.
 2. [MUIS](https://www.muis.gov.sg/Halal/Halal-Certification/Certified-Eating-Establishments) which was used for scraping to retrieve all Halal-Certified eateries in Singapore. 
@@ -98,11 +107,4 @@ The web app was deployed via [Netlify](https://www.netlify.com/). This github re
 4. [Bootstrap](https://getbootstrap.com/) which was used for styling the site.
 5. [Font Awesome](https://fontawesome.com/icons) for icons across the site.
 6. [CodePen](https://codepen.io/WhirlwindRhyme/pen/PwrMYE) for the CSS used to allow the logo of the site to spin.
-
-
-
-
-
-
-
 
