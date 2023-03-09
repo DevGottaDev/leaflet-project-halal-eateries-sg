@@ -5,11 +5,15 @@
 Try out the site [here](https://halalgowhere.netlify.app/).
 
 ## Project Summary
-
 "Halal Go Where?" is a mobile-responsive front-end web application that aims to allow users to view and explore MUIS-certified Halal eateries located in Singapore.
 
 ### Why make this application?  
 Currently, there exists only a few resources with which Muslims living in Singapore can use to find places to eat. They are the official MUIS [website](https://www.muis.gov.sg/Halal/Halal-Certification/Certified-Eating-Establishments#) and the MuslimSG application. However both sources come with the downsides. MUIS's site only allows the user to check if a restaurant is halal certified and the MuslimSG application only works if downloaded and installed on a compatible device. Halal Go Where? (Refered to from here on HGW) allows the user to access an interactive leaflet-map based application from any device with a browser.
+
+### Where is the data from?
+The data used was scraped from MUIS's official website using the Selenium and BeautifulSoup4 plugins for python. You can view the source code of the scraper [here](https://github.com/RecursiveDev/leaflet-project-halal-eateries-sg/tree/main/datasources/muis).
+
+The data was then manually cleaned due to a large amount of incorrect data on MUIS's site and then reverse geo-coded through the [OneMap Search API](https://app.swaggerhub.com/apis/onemap-sg/new-onemap-api/1.0.4#/OneMap%20REST%20APIs/search).
 
 ### User Story
 | User Story | Acceptance Criteria |
@@ -75,10 +79,27 @@ FontAwesome was used for icons in various positions on the application. The [Pac
 5. [Leaflet](leafletjs.com) for rendering the map
 6. [MarkerCluster](https://github.com/Leaflet/Leaflet.markercluster) for map marker clustering
 7. [Axios](https://github.com/axios/axios) for fetching data from relevant API endpoints.
-8. [Font Awesome](https://fontawesome.com/icons) for icons across the site.
-9. [Google Fonts](https://fonts.google.com/) for styling of fonts.
-10. [MarkerCluster.LayerSupport](https://github.com/ghybs/Leaflet.MarkerCluster.LayerSupport) for dynamic clustering support for multiple layers
-11. [Locate.Control](https://github.com/domoritz/leaflet-locatecontrol) for geolocating the users.
+8. [Google Fonts](https://fonts.google.com/) for styling of fonts.
+9. [MarkerCluster.LayerSupport](https://github.com/ghybs/Leaflet.MarkerCluster.LayerSupport) for dynamic clustering support for multiple layers
+10. [Locate.Control](https://github.com/domoritz/leaflet-locatecontrol) for geolocating the users.
+
+## Testing
+Testing was carried out via the use of python localhost server as well as VSCode live server plugin. A table of the test cases and results can be found [here](https://github.com/RecursiveDev/leaflet-project-halal-eateries-sg/blob/main/readme%20assets/Halal%20Go%20Where%20Test%20Cases.pdf).
+
+Debugging tools used were the developer's tools from Google Chrome Version 110.0.5481.180.
+
+## Deployment
+The web app was deployed via [Netlify](https://www.netlify.com/). This github repository's main branch was connected via third-party auth to allow Netlify to dynamically fetch and deploy any changes made to the main branch.
+
+## Credits and Attributions
+1. [OneMap Developer Portal](https://www.onemap.gov.sg/docs/) which was used for the autocomplete search function as well as for reverse geocoding the addresses scraped from MUIS.
+2. [MUIS](https://www.muis.gov.sg/Halal/Halal-Certification/Certified-Eating-Establishments) which was used for scraping to retrieve all Halal-Certified eateries in Singapore. 
+3. [Foursquare Developer Portal](https://foursquare.com/developers/home) which was used to fetch data about each restaurant such as cuisine and pictures.
+4. [Bootstrap](https://getbootstrap.com/) which was used for styling the site.
+5. [Font Awesome](https://fontawesome.com/icons) for icons across the site.
+6. [CodePen](https://codepen.io/WhirlwindRhyme/pen/PwrMYE) for the CSS used to allow the logo of the site to spin.
+
+
 
 
 
