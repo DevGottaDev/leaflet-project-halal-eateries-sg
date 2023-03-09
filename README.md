@@ -22,7 +22,12 @@ Currently, there exists only a few resources with which Muslims living in Singap
 ### Goals  
 This app is targeted at Muslims living in Singapore as well as any potential Muslim visitors to Singapore such as tourists etc. The app also aims to help support halal-ceritfied establishments by raising awareness of their existence, helping to keep them in business, allowing for more diversity in menu options for Muslim consumers.
 
+
+<p align="center">
+  <img src="https://github.com/waldyr/Sublime-Installer/blob/master/sublime_text.png?raw=true" alt="Sublime's custom image"/>
+</p>
 ### Wireframes/Mockups  
+
 ![Desktop](https://user-images.githubusercontent.com/31808408/224069121-a38c0a3f-2bca-46b9-a542-17ffbe88603f.png)
 Wireframe for large screen devices.
 
