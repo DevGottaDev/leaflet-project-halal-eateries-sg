@@ -42,7 +42,7 @@ body {
 #map {
   height: 100vh;
   background: #003652;
-  margin-top:5vh;
+  margin-top:6vh;
   z-index: 1;
 }
 
