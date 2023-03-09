@@ -57,15 +57,21 @@ searchInput.addEventListener('input', async function () {
 });
 
 const searchBtn = document.querySelector('#search-button');
+let searchMarker = null;
 searchBtn.addEventListener('click', async function (event) {
   event.preventDefault();
   results = await getLocation(searchInput.value);
-  console.log(results);
-  let searchMarker = new L.marker([results[0].latitude, results[0].longitude]).bindPopup(
-    "<div>"+
+
+  if (searchMarker !== null) {
+    map.removeLayer(searchMarker);
+  }
+
+  searchMarker = new L.marker([results[0].latitude, results[0].longitude], ).bindPopup(
+    "<div id='search-location'>"+
     "<b>Name:</b> "+ results[0].name +
     "</div>");
   searchMarker.addTo(map);
+  searchMarker.openPopup()
   map.flyTo([results[0].latitude, results[0].longitude], 16)
 
 });

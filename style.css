@@ -31,7 +31,7 @@ html, body {
 }
 
 #map {
-    height: 100vh;
+    height: 90vh;
     background:#003652;
 }
 
@@ -81,4 +81,9 @@ input[type="search"] {
   #search-bar {
     width:auto;
   }
+}
+
+#search-location{
+  padding:10px;
+  margin-top:10px;
 }
