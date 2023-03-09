@@ -101,4 +101,11 @@ input[type="search"] {
 
 #logo-text {
   font-family: 'Pacifico';
+  font-size: x-large;
+  font-style: bold;
+}
+
+#night-theme{
+  border-right:1px solid;
+  border-left:1px solid;
 }
