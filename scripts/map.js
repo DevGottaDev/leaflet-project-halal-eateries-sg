@@ -6,7 +6,7 @@ let mapBounds = new L.LatLngBounds(
 //initialize the map
 var map = L.map('map', {
     center: center,
-    zoom: 12,
+    zoom: 13,
     maxZoom: 19,
     minZoom: 10,
     maxBounds: mapBounds,
@@ -90,6 +90,17 @@ async function populateMarkers(){
         locations.addLayer(marker);
     }
 }
+
+// Add a "locate me" button to the map
+L.control.locate({
+    position: 'topleft',
+    strings: {
+      title: "Locate me"
+    },
+    locateOptions: {
+      enableHighAccuracy: true
+    }
+  }).addTo(map);
 
 //main map method
 async function mapInit(){
