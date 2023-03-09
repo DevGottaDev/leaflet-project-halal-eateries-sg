@@ -93,8 +93,7 @@ input[type="search"] {
     width: auto;
   }
   #night-theme{
-    border-right:0px solid;
-    border-left:0px solid;
+    border: none !important;
   }
 }
 
