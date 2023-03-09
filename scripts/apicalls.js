@@ -7,7 +7,7 @@ const restaurantJson = 'https://raw.githubusercontent.com/RecursiveDev/leaflet-p
 const foursquareplaces = 'https://api.foursquare.com/v3/places/search';
 const foursquarephotos1 = 'https://api.foursquare.com/v3/places/'
 const foursquarephotos2 = '/photos?limit=1&sort=POPULAR';
-const token = 'fsq3Ea7301GXDGdL+eWZBEtsKa4xCAOuOr3H/sdFEncUCzQ=';
+const token = 'fsq30NdG0Q7HCfq1eU0/gIX/WjoObc8bqpFljpHTCfBB3Bo=';
 
 const onemapSearch ='https://developers.onemap.sg/commonapi/search';
 
