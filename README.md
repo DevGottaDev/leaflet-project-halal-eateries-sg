@@ -1,6 +1,6 @@
 # Halal Go Where? 
 ## A mobile responsive frontend app to help users find halal-certified F&B in Singapore
 
-![multi device view](![image](https://user-images.githubusercontent.com/31808408/224055495-1edcdb34-c73f-4419-9a9c-a7e7d88a4274.png)
+![multi device view](![image](https://github.com/RecursiveDev/leaflet-project-halal-eateries-sg/blob/main/readme%20assets/multi-device-view.PNG)
 
 Try out the site [here](https://halalgowhere.netlify.app/).
