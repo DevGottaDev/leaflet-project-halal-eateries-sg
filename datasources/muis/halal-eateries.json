@@ -1,65 +1,5 @@
 [
         {
-                "id": "0",
-                "name": "Astro Thai (S4) @ Cantine Northshore",
-                "address": "418 NORTHSHORE DRIVE, #02-07-09",
-                "postalCode": "820418"
-        },
-        {
-                "id": "1",
-                "name": "Bottle Tree Cafe Restaurant",
-                "address": "510 UPPER JURONG ROAD, #01-06-08, SINGAPORE DISCOVERY CENTRE",
-                "postalCode": "638365"
-        },
-        {
-                "id": "2",
-                "name": "Fitra Chicken Rice (S2) @ Cantine Northshore",
-                "address": "418 NORTHSHORE DRIVE, #02-07-09",
-                "postalCode": "820418"
-        },
-        {
-                "id": "3",
-                "name": "Grilled Delights/Paper Pot/Homemade Yogurts (S7)@My Kampung KWM",
-                "address": "1 STADIUM PLACE, #02-16/k6",
-                "postalCode": "397628"
-        },
-        {
-                "id": "4",
-                "name": "HYOGAKI",
-                "address": "110 YISHUN RING ROAD, #01-395",
-                "postalCode": "760110"
-        },
-        {
-                "id": "5",
-                "name": "Penang Culture",
-                "address": "1 Pasir Ris Central Street 3, #03-21, White Sands",
-                "postalCode": "518457"
-        },
-        {
-                "id": "6",
-                "name": "Sanook Kitchen",
-                "address": "21 CHOA CHU KANG AVENUE 4, #01-06/07, LOT ONE, SHOPPERS' MALL",
-                "postalCode": "689812"
-        },
-        {
-                "id": "7",
-                "name": "SUBWAY",
-                "address": "2 COLLEGE AVENUE WEST, #01-08",
-                "postalCode": "138607"
-        },
-        {
-                "id": "8",
-                "name": "SUBWAY",
-                "address": "418 YISHUN AVENUE 11, #01-401",
-                "postalCode": "760418"
-        },
-        {
-                "id": "9",
-                "name": "SUKARNIH CHICKEN RICE (S33)@ MARGARET DRIVE HAWKER CENTRE",
-                "address": "38A MARGARET DRIVE, #01-33",
-                "postalCode": "142038"
-        },
-        {
                 "id": "10",
                 "name": "Astro Thai (S4) @ Cantine Northshore",
                 "address": "418 NORTHSHORE DRIVE, #02-07-09",
@@ -469,18 +409,6 @@
         },
         {
                 "id": "78",
-                "name": "Old Chang Kee",
-                "address": "252 North Bridge Road, B1-55, Raffles City Shopping Centre",
-                "postalCode": "179103"
-        },
-        {
-                "id": "79",
-                "name": "Old Chang Kee",
-                "address": "50 BEACH VIEW 01-K7 SENTOSA 098604",
-                "postalCode": "098604"
-        },
-        {
-                "id": "80",
                 "name": "Old Chang Kee",
                 "address": "252 North Bridge Road, B1-55, Raffles City Shopping Centre",
                 "postalCode": "179103"
