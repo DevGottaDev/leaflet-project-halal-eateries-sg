@@ -61,14 +61,10 @@ body {
   width: 50%;
 }
 
-/* .leaflet-popup-content-wrapper{
-  background-color: rgb(41, 187, 41);
-
-} */
-
 .leaflet-popup-content {
   margin: 0;
   overflow: hidden;
+  background-color:aliceblue;
 }
 
 .leaflet-popup-content-wrapper {
@@ -77,7 +73,10 @@ body {
 }
 
 .address-div {
-  margin: 1%;
+  margin: 3%;
+  margin-top: 5%;
+  font-family: 'Roboto', sans-serif;
+  font-style:bold;
 }
 
 input[type="search"] {

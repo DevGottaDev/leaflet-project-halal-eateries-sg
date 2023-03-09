@@ -82,7 +82,7 @@ async function populateMarkers(){
             "<b>Name:</b> "+ name +
             "<br><b>Address:</b> "+ address +
             "<br><b>Postcode:</b> "+ postalCode + "</div>" +
-            `<br><img src="`+ photoUrl + `" onerror="this.style.display='none'" class = "img-responsive w-100" alt="" style="height:50%">`
+            `<img src="`+ photoUrl + `" onerror="this.style.display='none'" class = "img-responsive w-100" alt="" style="height:50%">`
         );
         marker.on('mouseover', function(){
             this.openPopup();
