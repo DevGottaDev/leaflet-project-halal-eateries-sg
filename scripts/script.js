@@ -75,3 +75,13 @@ searchBtn.addEventListener('click', async function (event) {
   map.flyTo([results[0].latitude, results[0].longitude], 16)
 
 });
+
+
+//collapse navbar when click elsewhere
+document.addEventListener('click', function(event) {
+  var navbar = document.querySelector('.navbar');
+  var navbarCollapse = document.querySelector('.navbar-collapse');
+  if (!navbar.contains(event.target) && navbarCollapse.classList.contains('show')) {
+      document.querySelector('.navbar-toggler').click();
+  }
+});

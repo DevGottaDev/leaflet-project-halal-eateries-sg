@@ -1,49 +1,60 @@
-html, body {
+body {
   height: 100%;
   width: 100%;
+  margin:0;
 }
 
 #navbar {
-    max-height:10vh;
+  height: 10vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
 }
 
-#navbar-logo{
-    height:40px;
-    animation: spin 5s 1;
+#navbar-parent {
+  height: 10vh;
 }
 
-#navbar-logo:hover{
+#navbar-logo {
+  height: 40px;
+  animation: spin 5s 1;
+}
+
+#navbar-logo:hover {
   animation: spin 5s infinite;
 }
 
-@keyframes spin{
- from {
-   -moz-transform: rotateY(0deg);
-   -ms-transform: rotateY(0deg);
-   transform: rotateY(0deg);
- }
- 
- to {
-   -moz-transform: rotateY(-360deg);
-   -ms-transform: rotateY(-360deg);
-   transform: rotateY(-360deg);
- }
+@keyframes spin {
+  from {
+    -moz-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+  }
+
+  to {
+    -moz-transform: rotateY(-360deg);
+    -ms-transform: rotateY(-360deg);
+    transform: rotateY(-360deg);
+  }
 }
 
 #map {
-    height: 100vh;
-    background:#003652;
+  height: 90vh;
+  background: #003652;
+  margin-top:10vh;
 }
 
 .leaflet-marker-icon {
-    filter: invert(64%) sepia(30%) saturate(1225%) hue-rotate(61deg) brightness(150%) contrast(84%) drop-shadow(0px 1px 0 #556b2F) drop-shadow(0px -1px 0 #556b2F);
+  filter: invert(64%) sepia(30%) saturate(1225%) hue-rotate(61deg) brightness(150%) contrast(84%) drop-shadow(0px 1px 0 #556b2F) drop-shadow(0px -1px 0 #556b2F);
 }
 
-.input-group{
-  width:40%;
+.input-group {
+  width: 40%;
 }
 
-.leaflet-popup img{
+.leaflet-popup img {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -55,40 +66,39 @@ html, body {
 
 } */
 
-.leaflet-popup-content{
-  margin:0;
-  overflow:hidden;
+.leaflet-popup-content {
+  margin: 0;
+  overflow: hidden;
 }
 
-.leaflet-popup-content-wrapper{
-  overflow:hidden;
-  padding:0;
+.leaflet-popup-content-wrapper {
+  overflow: hidden;
+  padding: 0;
 }
 
-.address-div{
-  margin:1%;
+.address-div {
+  margin: 1%;
 }
 
 input[type="search"] {
   width: 100%;
 }
 
-#search-bar{
-  width:45vmin;
+#search-bar {
+  width: 45vmin;
 }
 
 @media only screen and (max-width: 768px) {
   #search-bar {
-    width:auto;
+    width: auto;
   }
 }
 
-#search-location{
-  padding:10px;
-  margin-top:10px;
+#search-location {
+  padding: 10px;
+  margin-top: 10px;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
-#logo-text{
+#logo-text {
   font-family: 'Pacifico';
 }
