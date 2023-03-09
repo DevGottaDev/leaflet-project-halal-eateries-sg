@@ -22,6 +22,9 @@ Currently, there exists only a few resources with which Muslims living in Singap
 ### Goals  
 This app is targeted at Muslims living in Singapore as well as any potential Muslim visitors to Singapore such as tourists etc. The app also aims to help support halal-ceritfied establishments by raising awareness of their existence, helping to keep them in business, allowing for more diversity in menu options for Muslim consumers.
 
+
+
+
 ## UI/UX
 Below we willd discuss the various decisions made for the UI/UX of this project.,
 ***
@@ -51,6 +54,32 @@ This was done to allow users to understand the cuisine of the eatery at a quick 
 
 ### Fonts
 FontAwesome was used for icons in various positions on the application. The [Pacifico](https://fonts.google.com/specimen/Pacifico) font from Google Fonts was used for styling the sitename next to the logo. [Roboto](https://fonts.google.com/specimen/Roboto) font was used for styling the map-marker popups for a clean, crisp look.
+
+
+## Features
+
+| Feature | Description |
+| ----------- | ----------- |
+| Search for a location by name | Users can search for any location in Singapore by its name. Autocomplete suggestions areprovided to the user as with every character they type into the search form as it is tied to a keyup event. |
+| Find current location | Users can geolocate their current location to help themselves navigate the map |
+| Change map theme | Users can choose a map theme from the navbar to set the app's look to their liking |
+| View eatery info | Users can view a halal eatery's information by hovering/touching the location's respective marker |
+| Identify cuisine by icon | Each eatery will have a dynamic icon based on the cuisine they serve. |
+
+## Technologies Used
+
+1. HTML5
+2. CSS
+3. Javascript
+4. [Bootstrap](https://getbootstrap.com/) for quick styling and functionality
+5. [Leaflet](leafletjs.com) for rendering the map
+6. [MarkerCluster](https://github.com/Leaflet/Leaflet.markercluster) for map marker clustering
+7. [Axios](https://github.com/axios/axios) for fetching data from relevant API endpoints.
+8. [Font Awesome](https://fontawesome.com/icons) for icons across the site.
+9. [Google Fonts](https://fonts.google.com/) for styling of fonts.
+10. [MarkerCluster.LayerSupport](https://github.com/ghybs/Leaflet.MarkerCluster.LayerSupport) for dynamic clustering support for multiple layers
+11. [Locate.Control](https://github.com/domoritz/leaflet-locatecontrol) for geolocating the users.
+
 
 
 
