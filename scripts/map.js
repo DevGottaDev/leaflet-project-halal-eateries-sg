@@ -79,9 +79,9 @@ async function populateMarkers(){
         let postalCode = String(feature.postalCode);
         let marker = new L.marker([feature.latitude,feature.longitude], {icon: getIcon(iconUrl)}).bindPopup(
             "<div class = 'address-div'>" +
-            "<b>Name:</b> "+ name +
-            "<br><b>Address:</b> "+ address +
-            "<br><b>Postcode:</b> "+ postalCode + "</div>" +
+            `<i class="fa fa-comment" aria-hidden="true"></i><b><u> Name</u></b><br> `+ name +
+            `<br><br><i class="fa fa-map-marker" aria-hidden="true"></i><b><u> Address</u></b><br> `+ address +
+            `<br><br><i class="fa fa-building" aria-hidden="true"></i><b>Postcode</u></b><br> `+ postalCode + "</div>" +
             `<img src="`+ photoUrl + `" onerror="this.style.display='none'" class = "img-responsive w-100" alt="" style="height:50%">`
         );
         marker.on('mouseover', function(){
